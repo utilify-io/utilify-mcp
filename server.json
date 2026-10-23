@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.utilify-io/utilify-mcp",
+  "title": "Utilify",
+  "description": "AI agents compare and sign up for Texas utility plans: electricity, internet, gas, water, trash.",
+  "repository": {
+    "url": "https://github.com/utilify-io/utilify-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "websiteUrl": "https://utilify.io",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://utilify.io/mcp"
+    }
+  ]
+}
