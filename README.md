@@ -136,7 +136,7 @@ Use `mcp-remote` or your framework's MCP adapter to connect to `https://utilify.
 ## How signup flows work
 
 Returns a direct handoff URL (https://utilify.io/go/{planId}?zip={zip}) for the user to open in their browser and land on the provider's official signup portal.
-Utilify operates as a free, open-access MCP data layer and optional consumer lead handoff; we do not collect utility commissions, payment credentials, or SSNs.
+Utilify operates as a free, open-access MCP data layer and optional consumer lead handoff; we do not collect electricity utility commissions, payment credentials, or SSNs.
 Final plan selection, identity verification, and enrollment authorization are completed directly between the consumer and the utility provider.
 
 ## Fair use
