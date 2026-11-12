@@ -135,9 +135,9 @@ Use `mcp-remote` or your framework's MCP adapter to connect to `https://utilify.
 
 ## How signup flows work
 
-When an agent calls `initiate_signup`, Utilify returns a short redirect URL (`https://utilify.io/go/{planId}?zip={zip}`) for the user to open in their browser. The redirect carries affiliate-tracking parameters and lands the user on the provider's official signup page. Utilify earns a referral commission on completed signups. **We never collect payment info or credentials.** Plans are ranked by price, not commission rate.
-
-FTC disclosure is shown on every results page.
+Returns a direct handoff URL (https://utilify.io/go/{planId}?zip={zip}) for the user to open in their browser and land on the provider's official signup portal.
+Utilify operates as a free, open-access MCP data layer and optional consumer lead handoff; we do not collect utility commissions, payment credentials, or SSNs.
+Final plan selection, identity verification, and enrollment authorization are completed directly between the consumer and the utility provider.
 
 ## Fair use
 
