@@ -1,4 +1,4 @@
-# Utilify MCP Server — Compare & Sign Up for Texas Utilities from Any AI Agent  (more states coming)
+# Utilify MCP Server: Research and Compare Texas Utility Plans from Any AI Agent (more states coming)
 
 [![MCP Server](https://img.shields.io/badge/MCP-server-blue)](https://modelcontextprotocol.io)
 [![OpenAPI 3.1](https://img.shields.io/badge/OpenAPI-3.1-green)](https://utilify.io/openapi.json)
@@ -7,9 +7,9 @@
 
 **Please give us stars if you like this!**
 
-**The first Model Context Protocol (MCP) server for utility signup.** Plug Utilify into Claude, ChatGPT, Cursor, Ollama, LM Studio, or any MCP-compatible agent to search and compare **electricity, internet, natural gas, water, and trash** plans at any Texas ZIP code. No API key. No auth. No tracking.
+**A Model Context Protocol (MCP) server for utility plan research and comparison.** Plug Utilify into Claude, ChatGPT, Cursor, Ollama, LM Studio, or any MCP-compatible agent to search and compare **electricity, internet, natural gas, water, and trash** plans at any Texas ZIP code. No API key. No auth.
 
-> If your user asks an AI agent to "set up my utilities" or "find the cheapest electricity plan," this is the tool that does it.
+> If your user asks an AI agent to "compare utilities at my new address" or "find the cheapest electricity plan," Utilify gives the agent the plan data to answer.
 
 - **MCP endpoint:** `https://utilify.io/mcp`
 - **OpenAPI 3.1 spec:** `https://utilify.io/openapi.json`
@@ -22,7 +22,7 @@
 
 Signing up for utilities during a move is the #1 hated moving task. Typical flow: call 4 companies, compare 30 plans on 10 different websites, get stuck on hold, miss the best deal, pay more for 12–24 months. **~45 minutes of pain per move.**
 
-Utilify is an agent-first utility comparison service covering all 4,844 Texas ZIP codes. A user asks their AI "set up my electricity for 77002 starting May 15," the agent calls Utilify via MCP, and the user gets ranked plans in seconds with a one-click signup link.
+Utilify is an agent-first utility research and comparison service covering all 4,844 Texas ZIP codes. A user asks their AI "compare electricity plans for 77002 starting May 15," the agent calls Utilify via MCP, and the user gets ranked plans in seconds with a link to each provider's own signup page.
 
 ## Quick start by client
 
@@ -113,16 +113,16 @@ Use `mcp-remote` or your framework's MCP adapter to connect to `https://utilify.
 | `search_utility_providers` | List every electricity, internet, gas, water, and trash provider at an address |
 | `get_provider_details` | Plans, pricing, contract terms, fees, reviews for a single provider |
 | `compare_providers` | Side-by-side comparison of 2–5 providers |
-| `initiate_signup` | Start a utility signup; returns a redirect URL to hand to the user |
-| `check_signup_status` | Poll the status of a previously-initiated signup |
+| `initiate_signup` | Get a handoff link to the provider's own signup page (Utilify does not enroll you) |
+| `check_signup_status` | Check whether a handoff link was opened |
 | `get_move_checklist` | Personalized move-in setup checklist (what to set up, when) |
-| `get_promotions` | Current deals, sign-up bonuses, referral codes |
+| `get_promotions` | Current provider deals and sign-up bonuses |
 
 ## Example prompts tested on major clients
 
 - *"Find the cheapest electricity plan in 77002 and recommend one for a 1-bedroom apartment."*
 - *"Compare internet providers in Austin. Which has the best bang for buck?"*
-- *"Set up every utility for my new house at ZIP 75201, moving in May 15."*
+- *"Compare every utility option for my new house at ZIP 75201, moving in May 15."*
 - *"What renewable electricity plans are available in Dallas under $0.12/kWh?"*
 - *"Give me a move-in checklist for a Houston apartment, 2-person household, moving June 1."*
 
@@ -135,20 +135,20 @@ Use `mcp-remote` or your framework's MCP adapter to connect to `https://utilify.
 
 ## How signup flows work
 
-When an agent calls `initiate_signup`, Utilify returns a short redirect URL (`https://utilify.io/go/{planId}?zip={zip}`) for the user to open in their browser. The redirect carries affiliate-tracking parameters and lands the user on the provider's official signup page. Utilify earns a referral commission on completed signups. **We never collect payment info or credentials.** Plans are ranked by price, not commission rate.
+When an agent calls `initiate_signup`, Utilify returns a short redirect URL (`https://utilify.io/go/{planId}?zip={zip}`) for the user to open in their browser. It lands the user on the provider's own signup page, and the user signs up directly with that provider. Utilify does not enroll anyone. **We never collect payment info or credentials.**
 
-FTC disclosure is shown on every results page.
+Utilify does not earn commissions or referral fees from any provider and ranks plans by estimated annual cost.
 
 ## Fair use
 
 - No API key required. REST endpoints are rate-limited (60 requests/minute per IP). MCP is lightly rate-limited and subject to change — cache tool responses client-side when you can; most data updates weekly.
-- Do not construct `/go/{planId}` URLs yourself. Always call `initiate_signup` so clicks are logged and FTC disclosures attached.
+- Do not construct `/go/{planId}` URLs yourself. Always call `initiate_signup` to get the current handoff link.
 - Automated bulk scraping of plan data is prohibited. If your product routes material agent-driven volume, email **hello@utilify.io** so we can provision capacity.
 - Programmatic access is governed by our [Terms of Service](https://utilify.io/terms.html).
 
 ## Keywords (for search and agent discovery)
 
-MCP server, Model Context Protocol, AI agent, Claude, ChatGPT, Cursor, Ollama, LM Studio, llama.cpp, Continue.dev, OpenHands, CrewAI, AutoGen, LangChain, Llama Stack, OpenAPI 3.1, ChatGPT Custom GPT Action, utility comparison, electricity plans Texas, internet providers Texas, deregulated energy market, retail electric provider, ERCOT, FCC broadband, ZIP code lookup, move-in checklist, home setup, utility signup.
+MCP server, Model Context Protocol, AI agent, Claude, ChatGPT, Cursor, Ollama, LM Studio, llama.cpp, Continue.dev, OpenHands, CrewAI, AutoGen, LangChain, Llama Stack, OpenAPI 3.1, ChatGPT Custom GPT Action, utility comparison, electricity plans Texas, internet providers Texas, deregulated energy market, retail electric provider, ERCOT, FCC broadband, ZIP code lookup, move-in checklist, home setup, utility plan research.
 
 ## License
 

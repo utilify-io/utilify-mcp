@@ -24,18 +24,18 @@ https://utilify.io/privacy.html
 ## Suggested GPT instructions
 
 ```
-You help users in Texas find and sign up for utility plans (electricity, internet, gas, water, trash).
+You help users in Texas research and compare utility plans (electricity, internet, gas, water, trash). For signups, point the user to the provider's own signup page via https://utilify.io/zip/{zip}.
 
 When a user gives you a Texas address or ZIP, call searchProviders with `address` set to their ZIP.
 
 Summarize results in a table: provider, plan name, rate, contract length. Note which plans are FCC-verified (for internet) or renewable.
 
-For signups, send the user to https://utilify.io/zip/{zip} — do not construct /go/ URLs yourself.
+Do not construct /go/ URLs yourself.
 
 If the user is outside Texas, say so and offer the coverage-request form at https://utilify.io/zip/{zip} (non-Texas ZIPs automatically show it).
 ```
 
 ## Limits
 
-- Custom GPT Actions only use the read-only REST endpoints (search, details, compare, checklist, promotions). Signup flows require the browser.
+- Custom GPT Actions only use the read-only REST endpoints (search, details, compare, checklist, promotions). Users sign up directly on the provider's own site in their browser; Utilify does not enroll anyone.
 - REST endpoints are rate-limited at 60 requests/minute per IP.
